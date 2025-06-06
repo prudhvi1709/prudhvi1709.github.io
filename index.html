@@ -132,6 +132,27 @@
     
     .floating-animation { animation: float 6s ease-in-out infinite; }
     .pulse-animation { animation: pulse 2s infinite; }
+    
+    .cursor-pointer {
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .cursor-pointer:hover {
+      transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+      .stats-card {
+        padding: 1rem !important;
+      }
+      .stats-card .fs-1 {
+        font-size: 1.5rem !important;
+      }
+      .stats-card small {
+        font-size: 0.75rem;
+      }
+    }
   </style>
 </head>
 <body class="text-dark">
@@ -148,8 +169,8 @@
           <h1 class="display-3 fw-bold gradient-text mb-3">Prudhvi Krovvidi</h1>
           <h3 class="h4 text-muted mb-4">Associate Data Scientist</h3>
           <p class="lead mb-4">
-            Building the future with <strong>Large Language Models</strong>, <strong>Generative AI</strong>, and <strong>Blockchain Technology</strong>. 
-            Transforming research into production-ready solutions at Gramener.
+            Hey there! I'm a data scientist who loves playing with AI and blockchain tech. 
+            Currently at Gramener, I'm building cool stuff that makes complex things simple.
           </p>
           <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a href="https://linkedin.com/in/prudhvi-krovvidi" class="btn btn-gradient pulse-animation px-4 py-2 rounded-pill fw-medium transition-all" target="_blank">
@@ -166,28 +187,98 @@
       </div>
     </div>
 
+    <!-- My Story Section -->
+    <div class="card border-0 shadow-lg bg-white bg-opacity-90 backdrop-blur rounded-3 mb-5">
+      <div class="card-body p-5">
+        <h2 class="section-title h3 text-dark fw-semibold mb-4 position-relative d-inline-block">
+          <i class="bi bi-book me-3"></i>My Journey
+        </h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="lead text-muted mb-4">
+              "Started by coding a Sudoku solver — sleep was clearly optional. Now it's AI development. Scientist? Maybe. Mad scientist? Definitely."
+            </p>
+            <div class="timeline">
+              <div class="d-flex mb-4">
+                <div class="p-2 rounded-circle me-3 d-flex align-items-center justify-content-center text-white" style="background: var(--primary-gradient); min-width: 40px; height: 40px;">
+                  <i class="bi bi-code-square"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">The Start</h6>
+                  <p class="text-muted mb-1">College days - thought I'd become an engineer, ended up debugging semicolons at 2 AM. Turns out, coding is just digital witchcraft... and somehow, I loved it.</p>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-4">
+                <div class="p-2 rounded-circle me-3 d-flex align-items-center justify-content-center text-white" style="background: var(--accent-gradient); min-width: 40px; height: 40px;">
+                  <i class="bi bi-lightbulb"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">The Game Changer</h6>
+                  <p class="text-muted mb-1">AI and ML caught my eye, and I dove in headfirst. Published some research, built some cool stuff - the journey's been wild!</p>
+                </div>
+              </div>
+              
+              <div class="d-flex">
+                <div class="p-2 rounded-circle me-3 d-flex align-items-center justify-content-center text-white" style="background: var(--secondary-gradient); min-width: 40px; height: 40px;">
+                  <i class="bi bi-rocket"></i>
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-1">Now</h6>
+                  <p class="text-muted mb-1">Working on some really exciting stuff at Gramener - Making AI do cool things that actually work in the real world</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm bg-light bg-opacity-50 rounded-3 p-4">
+              <h5 class="fw-semibold mb-3">How I Roll</h5>
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <strong>Always Learning:</strong> New tech? Count me in! I love trying out the latest and greatest
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <strong>Building Cool Stuff:</strong> From AI models to blockchain apps, I love creating things that make people go "wow"
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <strong>Community First:</strong> Love sharing what I know and learning from others in the community
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <strong>Open Source Fan:</strong> Contributing to the community that's given me so much
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Quick Stats -->
     <div class="row g-3 mb-5">
       <div class="col-md-3 col-6">
-        <div class="stats-card text-white text-center p-4 rounded-3 mb-3">
+        <div class="stats-card text-white text-center p-4 rounded-3 mb-3 cursor-pointer" onclick="window.open('https://github.com/prudhvi1709?tab=repositories', '_blank')">
           <span class="fs-1 fw-bold d-block">7+</span>
           <small>AI Projects</small>
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="stats-card text-white text-center p-4 rounded-3 mb-3">
+        <div class="stats-card text-white text-center p-4 rounded-3 mb-3 cursor-pointer" onclick="window.open('https://github.com/prudhvi1709?tab=repositories&type=source', '_blank')">
           <span class="fs-1 fw-bold d-block">3</span>
           <small>Publications</small>
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="stats-card text-white text-center p-4 rounded-3 mb-3">
+        <div class="stats-card text-white text-center p-4 rounded-3 mb-3 cursor-pointer" onclick="window.open('https://pypi.org/project/querybot/', '_blank')">
           <span class="fs-1 fw-bold d-block">1</span>
           <small>PyPI Package</small>
         </div>
       </div>
       <div class="col-md-3 col-6">
-        <div class="stats-card text-white text-center p-4 rounded-3 mb-3">
+        <div class="stats-card text-white text-center p-4 rounded-3 mb-3 cursor-pointer" onclick="window.open('https://github.com/prudhvi1709?tab=repositories', '_blank')">
           <span class="fs-1 fw-bold d-block">Open</span>
           <small>Source Advocate</small>
         </div>
@@ -438,7 +529,7 @@
     <!-- Hobbies & Interests -->
     <div class="mb-5">
       <h2 class="section-title h3 text-white fw-semibold mb-4 position-relative d-inline-block">
-        <i class="bi bi-heart me-3"></i>Beyond Code
+        <i class="bi bi-heart me-3"></i>When I'm Not Coding
       </h2>
       <div class="row g-4">
         <!-- Biking -->
@@ -450,13 +541,14 @@
                   <i class="bi bi-bicycle h2 mb-0"></i>
                 </div>
               </div>
-              <h5 class="card-title fw-semibold mb-3">Biking Enthusiast</h5>
+              <h5 class="card-title fw-semibold mb-3">My KTM Life</h5>
               <p class="card-text text-muted mb-3">
-                Proud owner of a KTM 390 Duke. Love hitting the open roads and exploring new routes on two wheels.
+                Got my trusty KTM 390 Duke - she's my escape from the screen! The Hyderabad-Srisailam route? Pure magic. Nothing beats the wind in your face and open roads ahead.
               </p>
               <div class="d-flex justify-content-center flex-wrap gap-2">
                 <span class="badge bg-warning text-dark px-3 py-1 rounded-pill">KTM 390 Duke</span>
                 <span class="badge bg-warning text-dark px-3 py-1 rounded-pill">Road Trips</span>
+                <span class="badge bg-warning text-dark px-3 py-1 rounded-pill">Adventure</span>
               </div>
             </div>
           </div>
@@ -471,13 +563,14 @@
                   <i class="bi bi-trophy h2 mb-0"></i>
                 </div>
               </div>
-              <h5 class="card-title fw-semibold mb-3">Powerlifter</h5>
+              <h5 class="card-title fw-semibold mb-3">Gym Life</h5>
               <p class="card-text text-muted mb-3">
-                Building strength both in code and in the gym. Passionate about powerlifting and pushing physical limits.
+                When I'm not coding, you'll find me in the gym. Currently chasing that 200kg deadlift - it's like debugging, but with weights! The grind never stops.
               </p>
               <div class="d-flex justify-content-center flex-wrap gap-2">
-                <span class="badge bg-danger px-3 py-1 rounded-pill">Strength Training</span>
-                <span class="badge bg-danger px-3 py-1 rounded-pill">Discipline</span>
+                <span class="badge bg-danger px-3 py-1 rounded-pill">Powerlifting</span>
+                <span class="badge bg-danger px-3 py-1 rounded-pill">Strength Goals</span>
+                <span class="badge bg-danger px-3 py-1 rounded-pill">Never Give Up</span>
               </div>
             </div>
           </div>
@@ -492,23 +585,23 @@
                   <i class="bi bi-airplane h2 mb-0"></i>
                 </div>
               </div>
-              <h5 class="card-title fw-semibold mb-3">Travel Lover</h5>
+              <h5 class="card-title fw-semibold mb-3">Travel Bug</h5>
               <p class="card-text text-muted mb-3">
-                Always planning the next adventure. Love exploring new cultures, cuisines, and capturing memories from around the world.
+                Love exploring new places! Next big adventure? Riding my KTM to Leh-Ladakh. Camera’s charged, bike’s prepped — now just waiting on the elusive ‘parental permission’.
               </p>
               <div class="d-flex justify-content-center flex-wrap gap-2">
                 <span class="badge bg-info px-3 py-1 rounded-pill">Adventure</span>
                 <span class="badge bg-info px-3 py-1 rounded-pill">Photography</span>
+                <span class="badge bg-info px-3 py-1 rounded-pill">Road Trips</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
+      </div>     
       <div class="text-center mt-4">
         <p class="text-white-50 fst-italic">
           <i class="bi bi-quote me-2"></i>
-          "Life is about balance - coding innovative solutions by day, exploring the world and staying strong by choice."
+          "Code by day, ride by evening, lift by night - that's the life I love!"
         </p>
       </div>
     </div>
@@ -518,7 +611,7 @@
       <div class="card-body py-5 px-4">
         <h3 class="section-title h4 mb-4 fw-semibold text-dark position-relative d-inline-block">Let's Build Something Amazing Together</h3>
         <p class="lead text-muted mb-4">
-          Interested in AI, LLMs, or collaboration? I'm always excited to discuss innovative projects and opportunities.
+          Interested in AI, LLMs, or just want to chat about tech? I'm always up for a good conversation about cool projects and ideas.
         </p>
         <div class="row justify-content-center">
           <div class="col-md-8">
@@ -562,7 +655,8 @@
         const currentProjectsContainer = document.getElementById('current-projects');
         currentProjectsContainer.innerHTML = '';
         
-        const uniqueRepos = repos.filter(repo => !repo.fork).slice(0, 3);
+        // Filter out prudhvi1709 repositories and non-forks
+        const uniqueRepos = repos.filter(repo => !repo.fork && !repo.name.startsWith('prudhvi1709')).slice(0, 3);
         
         if (uniqueRepos.length === 0) {
           currentProjectsContainer.innerHTML = `
