@@ -427,7 +427,7 @@
     <!-- Currently Building -->
     <div class="mb-5">
       <h2 class="section-title h3 text-white fw-semibold mb-4 position-relative d-inline-block">
-        <i class="bi bi-lightning-charge me-3"></i>Currently Building
+        <i class="bi bi-lightning-charge me-3"></i>Currently Working On
       </h2>
       <div class="row g-4" id="current-projects">
         <!-- Populated dynamically -->
@@ -587,7 +587,7 @@
               </div>
               <h5 class="card-title fw-semibold mb-3">Travel Bug</h5>
               <p class="card-text text-muted mb-3">
-                Love exploring new places! Next big adventure? Riding my KTM to Leh-Ladakh. Camera’s charged, bike’s prepped — now just waiting on the elusive ‘parental permission’.
+                Love exploring new places! Next big adventure? Riding my KTM to Leh-Ladakh. Camera's charged, bike's prepped — now just waiting on the elusive 'parental permission'.
               </p>
               <div class="d-flex justify-content-center flex-wrap gap-2">
                 <span class="badge bg-info px-3 py-1 rounded-pill">Adventure</span>
@@ -655,8 +655,8 @@
         const currentProjectsContainer = document.getElementById('current-projects');
         currentProjectsContainer.innerHTML = '';
         
-        // Filter out prudhvi1709 repositories and non-forks
-        const uniqueRepos = repos.filter(repo => !repo.fork && !repo.name.startsWith('prudhvi1709')).slice(0, 3);
+        // Include both original and forked repositories, but exclude prudhvi1709 repositories
+        const uniqueRepos = repos.filter(repo => !repo.name.startsWith('prudhvi1709')).slice(0, 3);
         
         if (uniqueRepos.length === 0) {
           currentProjectsContainer.innerHTML = `
