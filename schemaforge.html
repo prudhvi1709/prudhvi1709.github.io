@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SchemaForge | Prudhvi Krovvidi</title>
+<meta name="description" content="SchemaForge: an AI-powered data pipeline generator that turns messy CSVs into DBT models, configs, ER diagrams, and Python ETL code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0a09;--ink:#f4efe7;--ink-soft:#b8b0a4;--ink-faint:#7d766c;--amber:#e8a33d;--crimson:#e0563b;--violet:#8b6bd1;--line:rgba(244,239,231,.10);--line-2:rgba(244,239,231,.18);--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--amber);color:#0c0a09}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px}
+  .bgwash{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(80% 60% at 50% -10%,rgba(232,163,61,.16),transparent 60%),radial-gradient(60% 50% at 100% 0%,rgba(139,107,209,.12),transparent 55%)}
+  main{position:relative;z-index:1}
+  .top{padding:26px 0}
+  .back{font-family:var(--mono);font-size:13px;color:var(--ink-soft);display:inline-flex;gap:9px;align-items:center;transition:color .2s}
+  .back:hover{color:var(--amber)}
+  header.cs-hero{padding:36px 0 48px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,8vw,72px);line-height:.95;letter-spacing:-.03em;margin-bottom:14px}
+  .tagline{font-family:var(--serif);font-style:italic;font-size:clamp(18px,3vw,24px);color:var(--ink-soft);margin-bottom:24px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--ink-soft);border:1px solid var(--line-2);padding:4px 11px;border-radius:30px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{font-size:14px;font-weight:600;padding:12px 22px;border-radius:50px;border:1px solid var(--line-2);transition:background .25s,color .25s,border-color .25s,transform .2s;display:inline-flex;align-items:center;gap:7px}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--ink);color:#0c0a09;border-color:var(--ink)}
+  .btn.primary:hover{background:var(--amber);border-color:var(--amber)}
+  .btn.ghost:hover{border-color:var(--ink)}
+  section.blk{padding:46px 0;border-bottom:1px solid var(--line)}
+  .blk .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .blk .lbl::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--crimson),var(--amber))}
+  .blk h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,4vw,32px);letter-spacing:-.02em;margin-bottom:16px}
+  .blk p{font-size:17px;color:var(--ink-soft);margin-bottom:14px}
+  .steps{list-style:none;counter-reset:s;margin-top:6px}
+  .steps li{counter-increment:s;position:relative;padding:15px 0 15px 48px;border-top:1px solid var(--line);font-size:16px;color:var(--ink-soft)}
+  .steps li b{color:var(--ink);font-weight:600}
+  .steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:15px;font-family:var(--mono);font-size:13px;color:var(--amber)}
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .foot{padding:42px 0 64px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--ink-faint)}
+  .foot a{color:var(--amber)}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bgwash"></div>
+<main>
+  <div class="wrap">
+    <div class="top"><a class="back" href="index.html">&#8592; Back to portfolio</a></div>
+    <header class="cs-hero">
+      <div class="eyebrow reveal">Case study / 01</div>
+      <h1 class="reveal">SchemaForge</h1>
+      <div class="tagline reveal">An AI-powered data pipeline generator</div>
+      <div class="tags reveal"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">DBT</span><span class="tag">Data Engineering</span><span class="tag">ETL</span></div>
+      <div class="actions reveal">
+        <a class="btn primary" href="https://github.com/prudhvi1709/schemaforge" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+      </div>
+    </header>
+
+    <section class="blk">
+      <div class="lbl reveal">The problem</div>
+      <h2 class="reveal">Raw CSVs almost never arrive analysis ready</h2>
+      <p class="reveal">Turning a pile of messy CSVs into a governed, production data pipeline is slow, manual, and repetitive. Someone has to infer the schema, decide on types, work out how tables relate, write the transformation models, document everything, and wire up the ETL. It is the unglamorous work that sits between raw data and any useful analysis, and it gets redone on every new dataset.</p>
+    </section>
+
+    <section class="blk">
+      <div class="lbl reveal">How it works</div>
+      <h2 class="reveal">Point it at the data, review the output</h2>
+      <ol class="steps">
+        <li class="reveal"><b>Ingest.</b> Feed SchemaForge one or more messy CSVs.</li>
+        <li class="reveal"><b>Infer.</b> A language model reads the data to infer the schema, column types, and likely relationships between tables.</li>
+        <li class="reveal"><b>Generate.</b> It produces DBT models, YAML configs, ER diagrams, and Python ETL code automatically.</li>
+        <li class="reveal"><b>Review.</b> You stay in the loop: inspect the generated artifacts, adjust, and ship.</li>
+      </ol>
+    </section>
+
+    <section class="blk">
+      <div class="lbl reveal">Tech stack</div>
+      <h2 class="reveal">What it is built on</h2>
+      <p class="reveal">A Python core that orchestrates an LLM for schema inference and code generation, targeting the modern data stack so the output drops into real workflows rather than a notebook.</p>
+      <div class="stack reveal"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">DBT</span><span class="tag">YAML</span><span class="tag">ER diagrams</span><span class="tag">ETL</span></div>
+    </section>
+
+    <section class="blk">
+      <div class="lbl reveal">Status</div>
+      <h2 class="reveal">Open source and evolving</h2>
+      <p class="reveal">SchemaForge is open source on GitHub. It is one of several tools I build around a single idea: take the slow, manual glue work in data and AI workflows and let a model do the first 80 percent, with a human in the loop for the rest.</p>
+      <div class="actions reveal" style="margin-top:8px">
+        <a class="btn primary" href="https://github.com/prudhvi1709/schemaforge" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+        <a class="btn ghost" href="index.html#work">See other projects</a>
+      </div>
+    </section>
+
+    <div class="foot">Prudhvi Krovvidi <a href="index.html">&#8226; back to portfolio</a></div>
+  </div>
+</main>
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

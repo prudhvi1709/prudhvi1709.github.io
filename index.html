@@ -39,6 +39,8 @@
 
   /* WebGL canvas */
   #gl{position:fixed;inset:0;z-index:0;opacity:.9}
+  #fx{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+  #fx.on{opacity:.9}
   .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 80% at 50% 0%,transparent 40%,rgba(12,10,9,.55) 78%,var(--bg) 100%)}
   .grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -205,6 +207,25 @@
 
   footer{text-align:center;padding:34px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--ink-faint);border-top:1px solid var(--line)}
   footer b{color:var(--amber);font-weight:500}
+  .hint-egg{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px auto 0;font-family:var(--mono);font-size:11px;color:var(--ink-faint);background:none;border:1px solid var(--line);border-radius:30px;padding:8px 14px;cursor:pointer;transition:border-color .25s,color .25s}
+  .hint-egg:hover{border-color:var(--amber);color:var(--ink-soft)}
+  .hint-egg .code-keys{font-size:12px;color:var(--amber);letter-spacing:.12em}
+  /* Konami live progress */
+  .konami-prog{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(14px);z-index:9600;display:flex;gap:7px;padding:10px 15px;border-radius:30px;background:rgba(20,17,16,.92);border:1px solid var(--line-2);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .konami-prog.show{opacity:1;transform:translateX(-50%)}
+  .konami-prog span{font-family:var(--mono);font-size:14px;color:var(--ink-faint);transition:color .2s,transform .2s}
+  .konami-prog span.hit{color:var(--amber);transform:translateY(-2px)}
+
+  /* case-study link on cards */
+  .card-links a.cs{color:var(--amber)}
+  .card-links a.cs:hover{color:var(--ink)}
+
+  /* scramble */
+  .section-title .scr,.contact h2 .scr{color:var(--amber);opacity:.85}
+
+  /* KTM ride easter egg */
+  .ktm-ride{position:fixed;bottom:8%;left:-140px;z-index:9700;font-size:54px;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));will-change:transform}
+  .ktm-dust{position:fixed;bottom:8%;z-index:9690;width:8px;height:8px;border-radius:50%;background:var(--amber);pointer-events:none}
   /* ASK BAR (hero trigger) */
   .ask-pill{margin-top:34px;width:min(520px,100%);display:flex;align-items:center;gap:12px;padding:15px 18px;border:1px solid var(--line-2);border-radius:50px;background:rgba(20,17,16,.45);backdrop-filter:blur(8px);cursor:text;transition:border-color .3s,background .3s,transform .25s;text-align:left}
   .ask-pill:hover{border-color:var(--amber);background:rgba(20,17,16,.65)}
@@ -249,6 +270,7 @@
 </div>
 
 <canvas id="gl"></canvas>
+<canvas id="fx"></canvas>
 <div class="vignette"></div>
 <div class="grain"></div>
 <div class="cursor"></div>
@@ -342,25 +364,25 @@
         <div class="pno">01</div><h3>SchemaForge</h3><div class="sub">AI-Powered Data Pipeline Generator</div>
         <p>Transform messy CSVs into production-ready data pipelines. Generates DBT models, YAML configs, ER diagrams, and Python ETL code automatically.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">DBT</span><span class="tag">Data Engineering</span><span class="tag">ETL</span></div>
-        <div class="card-links"><a href="https://github.com/prudhvi1709/schemaforge" target="_blank" rel="noopener">Code <span class="arr">&#8599;</span></a><a href="https://github.com/prudhvi1709/schemaforge" target="_blank" rel="noopener">Star <span class="arr">&#8599;</span></a></div>
+        <div class="card-links"><a class="cs" href="schemaforge.html">Case study <span class="arr">&#8594;</span></a><a href="https://github.com/prudhvi1709/schemaforge" target="_blank" rel="noopener">Code <span class="arr">&#8599;</span></a></div>
       </div></article>
       <article class="card tilt reveal"><div class="glow"></div><div class="inner">
         <div class="pno">02</div><h3>QueryBot</h3><div class="sub">Natural Language Database Interface</div>
         <p>Query databases and local files using natural language. Published as a PyPI package, making data accessible to everyone.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">SQL</span><span class="tag">PyPI</span><span class="tag">JavaScript</span></div>
-        <div class="card-links"><a href="https://github.com/prudhvi1709/querybot" target="_blank" rel="noopener">Code <span class="arr">&#8599;</span></a><a href="https://pypi.org/project/querybot/" target="_blank" rel="noopener">Install <span class="arr">&#8599;</span></a></div>
+        <div class="card-links"><a class="cs" href="querybot.html">Case study <span class="arr">&#8594;</span></a><a href="https://pypi.org/project/querybot/" target="_blank" rel="noopener">Install <span class="arr">&#8599;</span></a></div>
       </div></article>
       <article class="card tilt reveal"><div class="glow"></div><div class="inner">
         <div class="pno">03</div><h3>HypoForge</h3><div class="sub">AI-Powered Research Assistant</div>
         <p>Generate research hypotheses using AI. Streamlines the research process with intelligent hypothesis generation.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">HTML</span><span class="tag">JavaScript</span></div>
-        <div class="card-links"><a href="https://github.com/prudhvi1709/hypoforge" target="_blank" rel="noopener">Code <span class="arr">&#8599;</span></a><a href="https://prudhvi1709.github.io/hypoforge/" target="_blank" rel="noopener">Demo <span class="arr">&#8599;</span></a></div>
+        <div class="card-links"><a class="cs" href="hypoforge.html">Case study <span class="arr">&#8594;</span></a><a href="https://prudhvi1709.github.io/hypoforge/" target="_blank" rel="noopener">Demo <span class="arr">&#8599;</span></a></div>
       </div></article>
       <article class="card tilt reveal"><div class="glow"></div><div class="inner">
         <div class="pno">04</div><h3>APIAgent</h3><div class="sub">Conversational API Interface</div>
         <p>Interact with APIs through natural language. Makes complex API interactions accessible through plain conversation.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">API</span><span class="tag">LLM</span><span class="tag">HTML</span><span class="tag">JavaScript</span></div>
-        <div class="card-links"><a href="https://github.com/prudhvi1709/hubspotapiagent" target="_blank" rel="noopener">Code <span class="arr">&#8599;</span></a><a href="https://prudhvi1709.github.io/hubspotapiagent/" target="_blank" rel="noopener">Demo <span class="arr">&#8599;</span></a></div>
+        <div class="card-links"><a class="cs" href="apiagent.html">Case study <span class="arr">&#8594;</span></a><a href="https://prudhvi1709.github.io/hubspotapiagent/" target="_blank" rel="noopener">Demo <span class="arr">&#8599;</span></a></div>
       </div></article>
     </div>
   </div>
@@ -405,7 +427,7 @@
     <h2 class="section-title reveal">When I'm Not Coding</h2>
     <div class="life">
       <div class="life-card reveal"><div class="ic">&#127949;</div><h4>My KTM Life</h4><p>Got my trusty KTM 390 Duke, she's my escape from the screen. The Hyderabad to Srisailam route is pure magic. Nothing beats wind in your face and open roads ahead.</p><div class="tags"><span class="tag">KTM 390 Duke</span><span class="tag">Road Trips</span><span class="tag">Adventure</span></div></div>
-      <div class="life-card reveal"><div class="ic">&#127947;</div><h4>Gym Life</h4><p>When I'm not coding you'll find me in the gym, currently chasing a 200kg deadlift. It's like debugging, but with weights. The grind never stops.</p><div class="tags"><span class="tag">Powerlifting</span><span class="tag">Strength Goals</span><span class="tag">Never Give Up</span></div></div>
+      <div class="life-card reveal"><div class="ic" id="gymIc" style="cursor:pointer" title="Go on, add a rep">&#127947;</div><h4>Gym Life</h4><p>When I'm not coding you'll find me in the gym, currently chasing a 200kg deadlift. It's like debugging, but with weights. The grind never stops.</p><div class="tags"><span class="tag">Powerlifting</span><span class="tag">Strength Goals</span><span class="tag">Never Give Up</span></div></div>
       <div class="life-card reveal"><div class="ic">&#128247;</div><h4>Travel Bug</h4><p>Love exploring new places. Next big adventure? Riding my KTM to Leh-Ladakh. Camera's charged, bike's prepped, now just waiting on the elusive parental permission.</p><div class="tags"><span class="tag">Adventure</span><span class="tag">Photography</span><span class="tag">Road Trips</span></div></div>
     </div>
     <p class="life-quote reveal">"Code by day, ride by evening, lift by night. That's the life I love."</p>
@@ -443,8 +465,10 @@
   </div>
 </div>
 <div class="toast" id="toast"></div>
+<div class="konami-prog" id="konamiProg" aria-hidden="true"></div>
 
-<footer>&copy; <span id="yr"></span> Prudhvi Krovvidi <b>/</b> Built with curiosity and caffeine</footer>
+<footer>&copy; <span id="yr"></span> Prudhvi Krovvidi <b>/</b> Built with curiosity and caffeine
+<button class="hint-egg" id="eggHint" type="button">psst, tap for a surprise <span class="code-keys">&#8593;&#8593;&#8595;&#8595;&#8592;&#8594;&#8592;&#8594; B A</span></button></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -775,6 +799,131 @@
     if((e.metaKey||e.ctrlKey) && (e.key==='k'||e.key==='K')){ e.preventDefault(); overlay.classList.contains('open')?closeAsk():openAsk(); }
     if(e.key==='Escape' && overlay.classList.contains('open')){ closeAsk(); }
   });
+
+  /* ---------- Generative particle hero (flow field) ---------- */
+  (function initFX(){
+    var c=document.getElementById('fx');
+    if(!c || reduced || isTouch || window.innerWidth<760) return;
+    var ctx=c.getContext('2d'); if(!ctx) return;
+    var dpr=Math.min(window.devicePixelRatio||1,1.5), W,H;
+    function size(){ W=window.innerWidth; H=window.innerHeight; c.width=W*dpr; c.height=H*dpr; c.style.width=W+'px'; c.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); }
+    size(); window.addEventListener('resize',size);
+    var cols=['rgba(232,163,61,','rgba(224,86,59,','rgba(139,107,209,'];
+    var N=Math.max(70,Math.min(150,Math.floor(W*H/13000)));
+    function reset(p,init){ p.x=Math.random()*W; p.y=Math.random()*H*0.94; p.vx=0; p.vy=0; p.life=init?(Math.random()*180):0; p.max=200+Math.random()*260; p.col=cols[(Math.random()*cols.length)|0]; p.w=Math.random()*1.5+0.4; return p; }
+    var ps=[]; for(var i=0;i<N;i++) ps.push(reset({},true));
+    var mx=-9999,my=-9999;
+    window.addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY; });
+    var t=0, active=true;
+    document.addEventListener('visibilitychange',function(){ active=!document.hidden; });
+    function field(x,y){ return (Math.sin(x*0.0016+t)+Math.cos(y*0.0019-t*0.8)+Math.sin((x+y)*0.0012+t*0.4))*1.25; }
+    function frame(){
+      requestAnimationFrame(frame);
+      var show=(window.scrollY||0) < H*0.95;
+      c.classList.toggle('on',show);
+      if(!active || !show) return;
+      t+=0.0009;
+      ctx.globalCompositeOperation='source-over';
+      ctx.fillStyle='rgba(12,10,9,0.10)'; ctx.fillRect(0,0,W,H);
+      ctx.globalCompositeOperation='lighter';
+      for(var i=0;i<ps.length;i++){
+        var p=ps[i], a=field(p.x,p.y);
+        p.vx+=Math.cos(a)*0.08; p.vy+=Math.sin(a)*0.08;
+        var dx=p.x-mx, dy=p.y-my, d2=dx*dx+dy*dy;
+        if(d2<13000){ var d=Math.sqrt(d2)||1, f=(1-d/114)*1.7; p.vx+=dx/d*f; p.vy+=dy/d*f; }
+        p.vx*=0.94; p.vy*=0.94;
+        var nx=p.x+p.vx, ny=p.y+p.vy;
+        var alpha=Math.min(0.5,p.life/60)*Math.min(1,(p.max-p.life)/80);
+        ctx.strokeStyle=p.col+(alpha*0.55).toFixed(3)+')'; ctx.lineWidth=p.w;
+        ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(nx,ny); ctx.stroke();
+        p.x=nx; p.y=ny; p.life++;
+        if(p.life>p.max||p.x<-20||p.x>W+20||p.y<-20||p.y>H+20) reset(p,false);
+      }
+    }
+    frame();
+  })();
+
+  /* ---------- Scramble-decode section titles ---------- */
+  if(!reduced){
+    var GLYPH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*/<>{}';
+    function scrambleEl(el){
+      var text=el.textContent, len=text.length, frame=0;
+      var revealAt=[]; for(var i=0;i<len;i++) revealAt[i]=Math.floor(i*1.2+Math.random()*9);
+      var dur=len*1.2+22;
+      (function tick(){
+        var out='';
+        for(var i=0;i<len;i++){
+          var ch=text.charAt(i);
+          if(ch===' '){ out+=' '; }
+          else if(frame>=revealAt[i]){ out+=ch; }
+          else { out+=GLYPH.charAt((Math.random()*GLYPH.length)|0); }
+        }
+        el.textContent=out; frame++;
+        if(frame<=dur) requestAnimationFrame(tick); else el.textContent=text;
+      })();
+    }
+    var sObs=new IntersectionObserver(function(ents){
+      ents.forEach(function(e){ if(e.isIntersecting){ scrambleEl(e.target); sObs.unobserve(e.target); } });
+    },{threshold:.6});
+    document.querySelectorAll('.section-title').forEach(function(el){ sObs.observe(el); });
+  }
+
+  /* ---------- Konami code: KTM ride ---------- */
+  var konami=[38,38,40,40,37,39,37,39,66,65], ki=0;
+  var konSyms=['↑','↑','↓','↓','←','→','←','→','B','A'];
+  var konProg=document.getElementById('konamiProg'), konHideTimer=null;
+  konSyms.forEach(function(s){ var el=document.createElement('span'); el.textContent=s; konProg.appendChild(el); });
+  var konSpans=konProg.querySelectorAll('span');
+  function paintProg(){
+    for(var i=0;i<konSpans.length;i++) konSpans[i].classList.toggle('hit', i<ki);
+    if(ki>0){
+      konProg.classList.add('show');
+      clearTimeout(konHideTimer);
+      konHideTimer=setTimeout(function(){ konProg.classList.remove('show'); ki=0; paintProg(); },2600);
+    } else { konProg.classList.remove('show'); }
+  }
+  document.addEventListener('keydown',function(e){
+    ki=(e.keyCode===konami[ki])?ki+1:(e.keyCode===konami[0]?1:0);
+    if(ki===konami.length){ ki=0; paintProg(); konProg.classList.remove('show'); ktmRide(); return; }
+    paintProg();
+  });
+  var eggHint=document.getElementById('eggHint');
+  if(eggHint){ eggHint.addEventListener('click',function(){ ktmRide(); }); }
+  function ktmRide(){
+    showToast('Ride mode unlocked. Hold on!');
+    var bike=document.createElement('div'); bike.className='ktm-ride'; bike.textContent='🏍'; document.body.appendChild(bike);
+    var start=performance.now(), dur=2600, span=window.innerWidth+220;
+    (function go(now){
+      var p=Math.min(1,(now-start)/dur), x=-140+p*span;
+      bike.style.transform='translateX('+x+'px) translateY('+(Math.sin(p*28)*4)+'px)';
+      if(Math.random()<0.5){
+        var dEl=document.createElement('div'); dEl.className='ktm-dust'; dEl.style.left=x+'px'; document.body.appendChild(dEl);
+        var ds=performance.now();
+        (function fade(n){ var pp=(n-ds)/700; dEl.style.opacity=String(Math.max(0,1-pp)); dEl.style.transform='translateY('+(-pp*22)+'px) scale('+(1-pp)+')'; if(pp<1) requestAnimationFrame(fade); else if(dEl.parentNode) dEl.parentNode.removeChild(dEl); })(ds);
+      }
+      if(p<1) requestAnimationFrame(go); else if(bike.parentNode) bike.parentNode.removeChild(bike);
+    })(start);
+  }
+
+  /* ---------- Hidden deadlift counter ---------- */
+  var gym=document.getElementById('gymIc'), reps=0;
+  if(gym){
+    gym.style.transition='transform .15s ease';
+    gym.addEventListener('click',function(){
+      reps++;
+      var msg=reps+' rep'+(reps>1?'s':'')+'!';
+      if(reps===5) msg='5 reps, warmed up';
+      if(reps===10) msg='10 reps, beast mode';
+      if(reps===20) msg='20 reps?! 200kg incoming';
+      showToast(msg);
+      gym.style.transform='scale(1.25)';
+      setTimeout(function(){ gym.style.transform=''; },150);
+    });
+  }
+
+  /* ---------- Tab-away title ---------- */
+  var realTitle=document.title;
+  document.addEventListener('visibilitychange',function(){ document.title=document.hidden?'🏍 come back!':realTitle; });
 })();
 </script>
 </body>
